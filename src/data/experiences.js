@@ -11,7 +11,7 @@ export const experiences = [
   },
   {
     id: 2,
-    title: "Engineering Manager",
+    title: "Co-Founder & CTO",
     company: "Moneey App",
     role: "Platform & Product Delivery",
     year: "Jan 2020 - Aug 2021",
