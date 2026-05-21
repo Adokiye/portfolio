@@ -134,4 +134,36 @@ export const allExperiences = [
     tags: ["Node.js", "React", "PostgreSQL", "APIs", "CI/CD"],
     year: "January 2020 - November 2020",
   },
+  {
+    id: 6,
+    title: "Tokenizer - Mobile Engineer",
+    description:
+      "Built and shipped contract mobile features for production users, integrated backend APIs, and improved release reliability through structured QA and performance tuning.",
+    tags: ["Mobile", "Flutter", "APIs", "Testing"],
+    year: "March 2020 - July 2020",
+  },
+  {
+    id: 7,
+    title: "Prospa - SME Banking - Mobile Engineer",
+    description:
+      "Delivered customer-facing mobile capabilities for SME banking flows, collaborating with product and backend teams to improve transaction experience and app stability.",
+    tags: ["Mobile", "Fintech", "SME Banking", "APIs"],
+    year: "December 2019 - March 2020",
+  },
+  {
+    id: 8,
+    title: "Sprinble - Mobile Engineer",
+    description:
+      "Implemented contract mobile solutions across key client projects, focusing on maintainable architecture, clean delivery, and reliable production behavior.",
+    tags: ["Mobile", "Architecture", "Delivery", "Client Projects"],
+    year: "April 2019 - December 2019",
+  },
+  {
+    id: 9,
+    title: "Hotels.ng - Back End Developer",
+    description:
+      "Built backend services and integrations for travel workflows, improving API consistency and delivery speed in a fast-paced contract environment.",
+    tags: ["Backend", "APIs", "Integrations", "Delivery"],
+    year: "July 2018 - September 2018",
+  },
 ];
