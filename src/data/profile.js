@@ -1,8 +1,8 @@
 export const profile = {
   name: "Paul Iruene",
-  role: "VP Engineering",
+  role: "Senior Full Stack Engineer & Staff DevOps Engineer",
   headline:
-    "Revenue-Focused Technical Executive | AI & Cloud Platform Leader",
+    "Senior Full Stack and Staff DevOps Engineer | AI, Cloud, and Platform Reliability Leader",
   location: "Lagos, Nigeria",
   phone: "+2348169212041",
   email: "gorgeceo@gmail.com",
