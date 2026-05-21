@@ -11,43 +11,43 @@ export const experiences = [
   },
   {
     id: 2,
-    title: "Co-Founder & CTO",
-    company: "Moneey App",
-    role: "Platform & Product Delivery",
-    year: "Jan 2020 - Aug 2021",
+    title: "Staff DevOps Engineer",
+    company: "Comptware Inc",
+    role: "Platform Engineering",
+    year: "Jan 2017 - Present",
     description:
-      "Led backend transaction systems, internal dashboards, and mobile delivery while improving reconciliation speed, reliability, and release quality.",
-    tags: ["Node.js", "Payments", "Dashboards", "CI/CD", "Flutter"],
+      "Led platform reliability and cloud operations across multi-environment Kubernetes estates, defined SLO driven operations, and standardized GitOps delivery patterns for critical production services.",
+    tags: ["Kubernetes", "AWS EKS", "GitOps", "Helm", "ArgoCD"],
   },
   {
     id: 3,
-    title: "Co-Founder & CTO",
-    company: "Comptware Inc",
-    role: "SaaS/Fintech Delivery",
-    year: "Jan 2019 - Jan 2020",
+    title: "Senior Full Stack Engineer & DevOps Engineer",
+    company: "Mkobo Bank",
+    role: "Fintech Platform",
+    year: "Nov 2020 - Dec 2021",
     description:
-      "Led engineering and product delivery for SaaS and fintech engagements, increasing deployment frequency and improving client time-to-market.",
-    tags: ["SaaS", "Fintech", "DevOps", "Architecture", "Leadership"],
+      "Owned secure fintech service delivery from application to runtime, hardened CI/CD and observability, and improved release confidence for customer facing banking workflows.",
+    tags: ["Postgres", "Docker", "Kubernetes", "Monitoring", "Flutter"],
   },
   {
     id: 4,
-    title: "Full Stack Engineer",
-    company: "Mkobo Bank",
-    role: "Fintech Engineering",
-    year: "Nov 2018 - Dec 2019",
+    title: "Senior DevOps Engineer",
+    company: "Vyudu Inc",
+    role: "Cloud Infrastructure",
+    year: "Jan 2020 - Jan 2021",
     description:
-      "Built and optimized secure financial APIs, improved backend reliability, and contributed to Flutter mobile implementation in a regulated environment.",
-    tags: ["Fintech", "APIs", "Reliability", "Flutter", "Monitoring"],
+      "Architected resilient cloud infrastructure, automated deployments and rollback paths, and established incident response playbooks that reduced operational risk during rapid product delivery.",
+    tags: ["AWS", "Kubernetes", "Terraform", "Prometheus", "Grafana"],
   },
   {
     id: 5,
-    title: "Full Stack Engineer",
+    title: "Senior Full Stack Engineer",
     company: "SocketWorks Limited",
-    role: "Infrastructure & Data Systems",
-    year: "Jan 2017 - Nov 2018",
+    role: "Product Engineering",
+    year: "Jan 2020 - Nov 2020",
     description:
-      "Automated CI/CD pipelines, managed analytics data stores, and built internal monitoring tools that significantly reduced query latency and release time.",
-    tags: ["Jenkins", "Ansible", "PostgreSQL", "MongoDB", "AWS Redshift"],
+      "Delivered high impact product features and API integrations while partnering with infrastructure teams to improve service performance, deployment reliability, and production readiness.",
+    tags: ["Node.js", "React", "PostgreSQL", "CI/CD", "AWS"],
   },
 ];
 
@@ -77,16 +77,16 @@ export const projects = [
       "Built internal dashboards for transaction visibility, fraud signals, and operational monitoring to improve decision speed.",
     tags: ["Dashboards", "Reconciliation", "Fraud Monitoring", "Data"],
     year: "2020-2021",
-    company: "Moneey App",
+    company: "Mkobo Bank",
   },
   {
     id: 4,
-    title: "CI/CD Modernization Program",
+    title: "Cloud Platform Reliability Program",
     description:
-      "Improved engineering delivery reliability by modernizing deployment workflows, release standards, and environment consistency.",
-    tags: ["CI/CD", "DevOps", "Release Engineering", "Observability"],
-    year: "2017-2020",
-    company: "SocketWorks + Comptware",
+      "Scaled Kubernetes operations and observability standards with GitOps governance, improving deployment safety and runtime reliability across teams.",
+    tags: ["Kubernetes", "DevOps", "GitOps", "Observability"],
+    year: "2017-Present",
+    company: "Comptware",
   },
 ];
 
@@ -95,43 +95,75 @@ export const allExperiences = [
     id: 1,
     title: "FoodCourt (YC S22) - Co-Founder & CTO",
     description:
-      "Led engineering strategy and execution for a multi-tenant food marketplace and payments platform. Reduced order latency by 40%, improved system uptime to 99.9%+, and accelerated feature-to-production timelines by 50%.",
+      "Led engineering strategy and execution for a multi-tenant food marketplace and payments platform. Scaled architecture and delivery systems to support sustained growth, high availability, and faster product iteration.",
     tags: ["NestJS", "Ruby on Rails", "PostgreSQL", "Redis", "AWS", "RAG"],
     year: "August 2021 - Present",
     link: "https://www.getfoodcourt.com/",
   },
   {
     id: 2,
-    title: "Moneey App - Engineering Manager",
+    title: "Comptware Inc - Staff DevOps Engineer",
     description:
-      "Directed platform architecture for wallet operations and payment flows, launched internal operations dashboards, and introduced release/QA structure that reduced post-release issues and manual intervention.",
-    tags: ["Node.js", "Payments", "Dashboards", "CI/CD", "Flutter"],
-    year: "January 2020 - August 2021",
-  },
-  {
-    id: 3,
-    title: "Comptware Inc - Co-Founder & CTO",
-    description:
-      "Led distributed engineering teams across SaaS and fintech projects, doubled deployment frequency through CI/CD modernization, and reduced cloud waste with containerization and resource optimization.",
-    tags: ["SaaS", "Fintech", "Leadership", "CI/CD", "Cloud Optimization"],
-    year: "January 2019 - January 2020",
+      "Led Kubernetes platform operations on AWS EKS with Helm and ArgoCD GitOps workflows, owning production reliability across stateless and stateful services. Managed RDS, S3, and ECR backed delivery pipelines, implemented repeatable backup and restore patterns with pg_dump, pg_restore, and S3 streaming, and guided incident response for pod failures, autoscaling drift, and release regressions. Operated Temporal clusters end to end including namespaces, schema jobs, frontend and history pods, and workflow queue health, while establishing observability with Prometheus, Grafana, Loki, and Elasticsearch dashboards using actionable PromQL signals.",
+    tags: ["Kubernetes", "AWS EKS", "GitOps", "Helm", "ArgoCD", "Temporal", "Prometheus", "Grafana"],
+    year: "January 2017 - Present",
     link: "https://comptware.com",
   },
   {
-    id: 4,
-    title: "Mkobo Bank - Full Stack Engineer",
+    id: 3,
+    title: "Mkobo Bank - Senior Full Stack Engineer & DevOps Engineer",
     description:
-      "Built secure fintech APIs, improved backend performance and reliability, shortened incident resolution time with better logging/monitoring, and contributed to Flutter app development.",
-    tags: ["Fintech APIs", "Reliability", "Monitoring", "Flutter"],
-    year: "November 2018 - December 2019",
+      "Owned secure fintech service delivery across application and infrastructure layers, strengthening release governance, workload resiliency, and runtime visibility for critical transaction paths. Built and supported containerized services with robust deployment controls, improved database operational confidence, and tightened monitoring coverage for faster diagnosis and recovery.",
+    tags: ["Postgres", "Docker", "Kubernetes", "CI/CD", "Monitoring"],
+    year: "November 2020 - December 2021",
     link: "https://mkobobank.com/",
   },
   {
-    id: 5,
-    title: "SocketWorks Limited - Full Stack Engineer",
+    id: 4,
+    title: "Vyudu Inc - Senior DevOps Engineer",
     description:
-      "Automated deployments with Jenkins and Ansible, improved release frequency by 40%, reduced release time by 30%, and cut slow database queries by 50% through internal performance tooling.",
-    tags: ["Jenkins", "Ansible", "PostgreSQL", "MongoDB", "AWS Redshift"],
-    year: "January 2017 - November 2018",
+      "Architected and operated cloud native infrastructure with a strong focus on reliability engineering, automation, and production hardening. Drove deployment standardization, proactive observability, and on-call readiness to improve uptime and reduce mean time to restore during incidents.",
+    tags: ["AWS", "Kubernetes", "Prometheus", "Grafana", "CI/CD"],
+    year: "January 2020 - January 2021",
+  },
+  {
+    id: 5,
+    title: "SocketWorks Limited - Senior Full Stack Engineer",
+    description:
+      "Delivered business critical product capabilities and backend integrations while improving engineering quality through better service instrumentation, release discipline, and cross-functional delivery leadership.",
+    tags: ["Node.js", "React", "PostgreSQL", "APIs", "CI/CD"],
+    year: "January 2020 - November 2020",
+  },
+  {
+    id: 6,
+    title: "Tokenizer - Mobile Engineer",
+    description:
+      "Built and shipped contract mobile features for production users, integrated backend APIs, and improved release reliability through structured QA and performance tuning.",
+    tags: ["Mobile", "Flutter", "APIs", "Testing"],
+    year: "March 2020 - July 2020",
+  },
+  {
+    id: 7,
+    title: "Prospa - SME Banking - Mobile Engineer",
+    description:
+      "Delivered customer-facing mobile capabilities for SME banking flows, collaborating with product and backend teams to improve transaction experience and app stability.",
+    tags: ["Mobile", "Fintech", "SME Banking", "APIs"],
+    year: "December 2019 - March 2020",
+  },
+  {
+    id: 8,
+    title: "Sprinble - Mobile Engineer",
+    description:
+      "Implemented contract mobile solutions across key client projects, focusing on maintainable architecture, clean delivery, and reliable production behavior.",
+    tags: ["Mobile", "Architecture", "Delivery", "Client Projects"],
+    year: "April 2019 - December 2019",
+  },
+  {
+    id: 9,
+    title: "Hotels.ng - Back End Developer",
+    description:
+      "Built backend services and integrations for travel workflows, improving API consistency and delivery speed in a fast-paced contract environment.",
+    tags: ["Backend", "APIs", "Integrations", "Delivery"],
+    year: "July 2018 - September 2018",
   },
 ];
