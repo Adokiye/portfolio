@@ -11,6 +11,16 @@ export const experiences = [
   },
   {
     id: 2,
+    title: "Principal Engineer & Staff DevOps / SRE",
+    company: "Moneey App",
+    role: "Digital banking and multi-bank wallet product",
+    year: "Jan 2023 - Jan 2026",
+    description:
+      "Designed the NestJS transfer routing service spanning 9PSB, Providus, Stanbic, and VFD with Moneey-to-Moneey wallet transfers, WAAS sub-account flows, and TSQ reconciliation. Migrated the wallet ledger from AWS QLDB to FoundationDB, led the cloud migration from AWS to Azure AKS with Helm, built the liveness service on the AWS Rekognition Liveness package, plus a custom Sentry-style error tracker and a custom Redis-backed socket gateway. Stood up the SRE practice (Prometheus, Grafana, Loki, PromQL alerting, on-call) and shipped the React ops dashboard and Flutter mobile features.",
+    tags: ["NestJS", "Flutter", "React", "FoundationDB", "AWS QLDB", "Azure AKS", "Helm", "Prometheus", "Grafana", "Loki"],
+  },
+  {
+    id: 3,
     title: "Staff DevOps and Platform Engineer",
     company: "Comptware Inc",
     role: "Multi-cloud platform with internal product tooling",
@@ -20,7 +30,7 @@ export const experiences = [
     tags: ["Kubernetes", "EKS", "GKE", "AKS", "ArgoCD", "TypeScript", "React"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Senior Full Stack and DevOps Engineer",
     company: "Mkobo Bank",
     role: "Digital banking and payments product",
@@ -30,7 +40,7 @@ export const experiences = [
     tags: ["Node.js", "PostgreSQL", "Flutter", "React", "Docker", "Kubernetes"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Staff DevOps Engineer",
     company: "Vyudu Inc",
     role: "SaaS analytics product",
@@ -40,7 +50,7 @@ export const experiences = [
     tags: ["React", "Node.js", "AWS", "Terraform", "EKS", "Prometheus", "Grafana"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Full Stack and Platform Engineer",
     company: "SocketWorks Limited",
     role: "Marketplace product and platform",
@@ -78,6 +88,51 @@ export const projects = [
     tags: ["React Native", "Flutter", "Fastlane", "FCM", "APNs", "Crashlytics"],
     year: "2022-Present",
     company: "FoodCourt",
+  },
+  {
+    id: 11,
+    title: "Multi-Bank Transfer Routing Service",
+    description:
+      "NestJS service that maps sender and receiver bank codes to the right partner-bank API (9PSB, Providus, Stanbic, VFD) for Moneey-to-Moneey wallet transfers, WAAS sub-account flows, beneficiary verification, and TSQ reconciliation of pending transactions.",
+    tags: ["NestJS", "9PSB", "Providus", "Stanbic", "VFD", "WAAS"],
+    year: "2023-2026",
+    company: "Moneey App",
+  },
+  {
+    id: 12,
+    title: "Wallet Ledger Migration (AWS QLDB to FoundationDB)",
+    description:
+      "Migrated the wallet ledger from AWS QLDB to FoundationDB for stronger transactional guarantees and lower per-operation cost. Owned schema design, dual-write rollout, and back-fill verification across historical wallet records.",
+    tags: ["FoundationDB", "AWS QLDB", "Migration", "Wallet", "Ledger"],
+    year: "2024",
+    company: "Moneey App",
+  },
+  {
+    id: 13,
+    title: "AWS to Azure Cloud Migration",
+    description:
+      "Led the full cloud migration from AWS to Azure with zero customer-visible downtime: re-platformed Kubernetes workloads onto AKS with Helm, rebuilt CI/CD against Azure Container Registry, and cut over PostgreSQL and object storage.",
+    tags: ["Azure AKS", "Helm", "ACR", "Migration", "Kubernetes"],
+    year: "2024-2025",
+    company: "Moneey App",
+  },
+  {
+    id: 14,
+    title: "Liveness Verification Service",
+    description:
+      "Built the customer liveness verification service from scratch on the AWS Rekognition Liveness package, integrated into Flutter onboarding and step-up auth flows for high-value transactions.",
+    tags: ["AWS Rekognition", "Liveness", "Flutter", "KYC", "Biometric"],
+    year: "2024",
+    company: "Moneey App",
+  },
+  {
+    id: 15,
+    title: "Custom Error Tracker and Socket Gateway",
+    description:
+      "Built a custom Sentry-style error-tracking service (event ingestion, deduplication, alert routing) and a Redis-backed socket gateway for real-time transaction notifications with reconnection, message replay, and per-user channels.",
+    tags: ["Redis", "WebSockets", "Error Tracking", "Real-time"],
+    year: "2023-2025",
+    company: "Moneey App",
   },
   {
     id: 4,
@@ -156,7 +211,15 @@ export const allExperiences = [
   },
   {
     id: 2,
-    title: "Comptware Inc - Staff Engineer, Platform and Product",
+    title: "Moneey App - Principal Engineer & Staff DevOps / SRE",
+    description:
+      "Owned the wallet and payments core end to end. Designed the NestJS transfer routing service mapping sender and receiver bank codes to the correct partner-bank API (9PSB, Providus, Stanbic, VFD) for Moneey-to-Moneey wallet transfers, WAAS sub-account flows, beneficiary verification, and TSQ reconciliation. Migrated the wallet ledger from AWS QLDB to FoundationDB for stronger transactional guarantees with a dual-write rollout and back-fill verification. Led the full cloud migration from AWS to Azure (AKS, Helm, ACR) with zero customer-visible downtime. Built the liveness verification service from scratch on the AWS Rekognition Liveness package, integrated into Flutter onboarding and step-up auth. Built a custom Sentry-style error tracker tuned for transaction-heavy workloads, and a custom Redis-backed socket gateway for real-time notifications to the Flutter app and React ops dashboard. Stood up the SRE practice: Prometheus, Grafana, Loki, PromQL alerting on transfer success rate and partner-bank latency, on-call rotations, and SLOs on wallet operations. Shipped the React internal ops dashboard for reconciliation, TSQ resolution, and audit, plus Flutter mobile features for transfers, beneficiaries, and biometric auth.",
+    tags: ["NestJS", "Flutter", "React", "FoundationDB", "AWS QLDB", "Azure AKS", "Helm", "Prometheus", "Grafana", "Loki", "AWS Rekognition", "Redis"],
+    year: "January 2023 - January 2026",
+  },
+  {
+    id: 3,
+    title: "Comptware Inc - Staff DevOps and Platform Engineer",
     description:
       "Own the multi-cloud Kubernetes platform across AWS EKS, GCP GKE, and Azure AKS for ~50 production services with Helm, ArgoCD GitOps, namespace tenancy, and cluster upgrade rollouts. Cut monthly compute spend ~28% with Karpenter spot-priority provisioning and CastAI bin-packing. Wrote the Oracle Database backup and restore runbook combining RMAN, GoldenGate CDC, and S3 cross-region streaming for DR with quarterly restore drills. Built an internal platform admin tool in TypeScript and React for service catalog browsing, deploy rollback, and incident triage used daily by SRE and product engineers. Operate Temporal clusters end to end and built the Prometheus, Grafana, Loki, and OpenTelemetry observability template that every new service inherits.",
     tags: ["Kubernetes", "AWS EKS", "GCP GKE", "Azure AKS", "ArgoCD", "Karpenter", "CastAI", "Oracle", "GoldenGate", "Temporal", "TypeScript", "React"],
@@ -164,7 +227,7 @@ export const allExperiences = [
     link: "https://comptware.com",
   },
   {
-    id: 3,
+    id: 4,
     title: "Mkobo Bank - Senior Full Stack and DevOps Engineer",
     description:
       "Built the core banking transaction service in Node.js with a PostgreSQL double-entry ledger, idempotency keys, and an outbox pattern fanning out to payment and notification consumers. Shipped the customer mobile banking app in Flutter and Dart covering biometric login, OTP-protected transfers, offline-first transaction history with SQLite caching, and FCM plus APNs push. Built the internal payments-ops dashboard in React and Node.js for transaction visibility, reconciliation, and fraud signal triage. Owned the DevOps side too: containerized services in Docker, migrated CI from Jenkins to GitHub Actions, deployed onto Kubernetes with HPA tuned against transaction throughput, and stood up the SRE stack with Prometheus, Grafana, PromQL alerting to PagerDuty, Elasticsearch logs, Sentry crash reports, and on-call runbooks for the ledger and reconciliation jobs.",
@@ -173,7 +236,7 @@ export const allExperiences = [
     link: "https://mkobobank.com/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Vyudu Inc - Staff DevOps Engineer",
     description:
       "Owned both sides of the stack. Built and shipped a multi-tenant analytics dashboard in React and Node.js with custom report builders, scheduled S3 exports, and SAML-based SSO. Designed the AWS production layout with Terraform covering EKS, RDS PostgreSQL, S3, CloudFront, and Route53 across staging and production. Set up the SRE practice: Prometheus and Grafana observability with PromQL alerting to Slack and PagerDuty, on-call playbooks for the React app, Node.js API, and PostgreSQL tier, and incident response rituals that improved uptime and reduced MTTR.",
@@ -181,7 +244,7 @@ export const allExperiences = [
     year: "September 2016 - August 2018",
   },
   {
-    id: 5,
+    id: 6,
     title: "SocketWorks Limited - Full Stack and Platform Engineer",
     description:
       "Built Node.js and Express APIs with PostgreSQL behind a React frontend for the company's flagship marketplace, owning the order, search, and notification modules end to end. Replaced a slow PostgreSQL LIKE-based search with a Redis-backed inverted index and pagination cursor logic, dropping search P95 from ~3s to ~250ms. Containerized the services in Docker, set up CI on Jenkins with linting, tests, and image builds gating deploys, and deployed onto an early Kubernetes setup with rolling updates. Stood up the team's first observability stack with Prometheus, Grafana, and Loki, including PromQL alerts on order failure rate and API latency paging the on-call engineer via Opsgenie, and introduced weekly incident reviews.",
@@ -189,7 +252,7 @@ export const allExperiences = [
     year: "July 2014 - August 2016",
   },
   {
-    id: 6,
+    id: 7,
     title: "Earlier Engineering Experience - Prospa, Tokenizer, Sprinble, Hotels.ng",
     description:
       "Shipped mobile apps to App Store and Play Store using Flutter, React Native, Kotlin, and Swift for early-stage fintech and SME banking products at Prospa, Tokenizer, and Sprinble, owning secure auth, transactions, and push notifications. Built backend REST API integrations and travel workflow services at Hotels.ng in Node.js and Ruby on Rails, improving API consistency and delivery speed.",

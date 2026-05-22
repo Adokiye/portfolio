@@ -9,7 +9,7 @@ export const profile = {
   github: "https://github.com/Adokiye",
   linkedin: "https://www.linkedin.com/in/paul-iruene-5537a5163",
   summary:
-    "Principal Engineer and technical co-founder with 11+ years owning user-facing products end to end across application code, mobile, DevOps, and Site Reliability Engineering at early-stage startups. Co-Founder and CTO at FoodCourt (Y Combinator S22) for 4+ years, with prior multi-year tenures as Staff DevOps at Comptware, Senior Full Stack and DevOps at Mkobo Bank, Staff DevOps at Vyudu, and Full Stack and Platform at SocketWorks.",
+    "Principal Engineer and technical co-founder with 11+ years owning user-facing products end to end across application code, mobile, DevOps, and Site Reliability Engineering at early-stage startups. Co-Founder and CTO at FoodCourt (Y Combinator S22) for 4+ years and Principal Engineer plus Staff DevOps / SRE lead at Moneey App for 3 years on a multi-bank wallet and payments platform. Prior multi-year tenures at Comptware, Mkobo Bank, Vyudu, and SocketWorks.",
   impact:
     "Ships fast in scrappy product cycles, owns decisions end to end, and sustains 99.9%+ uptime on transaction-critical systems while keeping deploy velocity multiple-daily.",
   education:

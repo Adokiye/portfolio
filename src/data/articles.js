@@ -1,5 +1,64 @@
 export const articles = [
   {
+    id: 5,
+    title: "Building a Game Engine, Not a Game: Designing for Reuse on Astral MUD Engine",
+    slug: "building-game-engine-not-a-game",
+    description:
+      "Side-project engineering notes from Astral MUD Engine, a ruleset-agnostic game framework built on Evennia. Why the same architecture instincts that scale payments platforms also make a game engine reusable.",
+    tags: ["Architecture", "Game Engine", "Python", "Evennia", "Side Project"],
+    image: null,
+    publishedDate: "2026-05-18",
+    content: `
+# Building a Game Engine, Not a Game: Designing for Reuse on Astral MUD Engine
+
+I have spent the last few months working on a side project called Astral MUD Engine. It is built on top of Evennia, the Python framework for multi-user text games, and the brief I gave myself and the two engineers building it with me (Shola and Yusuf) was deliberately uncomfortable.
+
+We are not building a game. We are building a framework that other people can build games on.
+
+That one sentence changed every architectural decision that followed.
+
+## The temptation when you build a game
+
+When most people start a MUD project, they pick a ruleset. D&D 3.5e. Pathfinder. Something homebrew. Then they wire that ruleset directly into every entity, every interaction, every persistence call. A Character has hit_points because D&D characters have hit points. A Weapon has a damage_dice field because a longsword rolls 1d8.
+
+The system works. It also locks you into that one game forever. Want to swap to a different ruleset? You are rewriting the core.
+
+## What we did instead
+
+We pulled the ruleset out of the entity model entirely.
+
+A Character in Astral MUD Engine does not know what game it is in. It knows it can hold things, be held in containers, take actions, and persist. That is the contract. Whether picking up a sword does 1d8 damage or triggers a Pathfinder maneuver is the responsibility of a RulesetMixin layered on top.
+
+This is the M3 entity model: the entity contract, the lifecycle, the containment layer, and persistence are all ruleset-agnostic. D&D 3.5e is one mixin in a directory. You could write a Pathfinder mixin tomorrow. You could write a sci-fi system with no dice at all.
+
+## The concrete example
+
+Take "a player picks up a sword."
+
+In a ruleset-coupled engine, that one line of code touches the dice roller, the inventory cap, the encumbrance system, and the magic-item rules. Change rulesets and you rewrite all of it.
+
+In Astral MUD Engine, that line just moves an entity from one container to another. Whether the sword glows, weighs the character down, or counts toward a magic item attunement cap is a question the ruleset layer answers separately.
+
+## Data over code
+
+The other decision we made early was to push as much game content as possible into data, not code. Entity prototypes live in JSON. Body schemas are lists, not classes. Persistence policy is a configuration, not a hardcoded function. The runtime reads data and reacts.
+
+This sounds obvious until you remember every framework that started "we'll just hardcode a few things" and is now drowning in cross-cutting concerns.
+
+## Why a payments engineer cares about a game engine
+
+The architectural instincts that make a marketplace platform scale (FoodCourt) and a multi-bank wallet route correctly (Moneey App) turn out to be the same instincts that make a game engine reusable. Decouple the policy from the mechanism. Keep the core small. Push variability into swappable layers. Make data the source of truth.
+
+I keep getting reminded that the discipline transfers. Whether it is partner-bank transfer routing or D&D dice rolls, the same answer keeps holding up: do not let the rules of today contaminate the structure of tomorrow.
+
+## Where Astral MUD Engine is now
+
+We demo every milestone in the Evennia web client (localhost:4001 in our case) with concrete in-game scenarios, not abstract test runs. "A player picks up a sword." "Two characters in different rooms trade an item." "A container is destroyed while items are inside it." If a feature cannot survive a real game scenario, it is not done.
+
+It is a side project, but the engineering muscle it has built up is anything but. If you are a senior engineer looking for a side project that quietly makes you better at your day job, build something that forces you to design for reuse from day one.
+    `.trim(),
+  },
+  {
     id: 1,
     title: "Building Revenue-Driven Engineering Operating Systems",
     slug: "revenue-driven-engineering-operating-systems",
