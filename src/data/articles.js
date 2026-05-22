@@ -11,7 +11,7 @@ export const articles = [
     content: `
 # Building a Game Engine, Not a Game: Designing for Reuse on Astral MUD Engine
 
-I have spent the last few months working on a side project called Astral MUD Engine. It is built on top of Evennia, the Python framework for multi-user text games, and the brief I gave myself and the two engineers building it with me (Shola and Yusuf) was deliberately uncomfortable.
+I have spent the last few months working on a side project called Astral MUD Engine. It is built on top of Evennia, the Python framework for multi-user text games, and the brief I gave myself was deliberately uncomfortable.
 
 We are not building a game. We are building a framework that other people can build games on.
 
@@ -53,7 +53,7 @@ I keep getting reminded that the discipline transfers. Whether it is partner-ban
 
 ## Where Astral MUD Engine is now
 
-We demo every milestone in the Evennia web client (localhost:4001 in our case) with concrete in-game scenarios, not abstract test runs. "A player picks up a sword." "Two characters in different rooms trade an item." "A container is destroyed while items are inside it." If a feature cannot survive a real game scenario, it is not done.
+I demo every milestone in the Evennia web client (localhost:4001 in my case) with concrete in-game scenarios, not abstract test runs. "A player picks up a sword." "Two characters in different rooms trade an item." "A container is destroyed while items are inside it." If a feature cannot survive a real game scenario, it is not done.
 
 It is a side project, but the engineering muscle it has built up is anything but. If you are a senior engineer looking for a side project that quietly makes you better at your day job, build something that forces you to design for reuse from day one.
     `.trim(),
