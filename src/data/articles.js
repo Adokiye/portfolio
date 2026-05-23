@@ -4,7 +4,7 @@ export const articles = [
     title: "Building a Game Engine, Not a Game: Designing for Reuse on Astral MUD Engine",
     slug: "building-game-engine-not-a-game",
     description:
-      "Side-project engineering notes from Astral MUD Engine, a ruleset-agnostic game framework built on Evennia. Why the same architecture instincts that scale payments platforms also make a game engine reusable.",
+      "Side-project engineering notes from Astral MUD Engine, a ruleset-agnostic game framework built on Evennia. Architecture decisions, the M3 entity model, and the server CPU and memory curve as game capabilities grow.",
     tags: ["Architecture", "Game Engine", "Python", "Evennia", "Side Project"],
     image: null,
     publishedDate: "2026-05-18",
@@ -13,7 +13,7 @@ export const articles = [
 
 I have spent the last few months working on a side project called Astral MUD Engine. It is built on top of Evennia, the Python framework for multi-user text games, and the brief I gave myself was deliberately uncomfortable.
 
-We are not building a game. We are building a framework that other people can build games on.
+I am not building a game. I am building a framework that other people can build games on.
 
 That one sentence changed every architectural decision that followed.
 
@@ -23,9 +23,9 @@ When most people start a MUD project, they pick a ruleset. D&D 3.5e. Pathfinder.
 
 The system works. It also locks you into that one game forever. Want to swap to a different ruleset? You are rewriting the core.
 
-## What we did instead
+## What I did instead
 
-We pulled the ruleset out of the entity model entirely.
+I pulled the ruleset out of the entity model entirely.
 
 A Character in Astral MUD Engine does not know what game it is in. It knows it can hold things, be held in containers, take actions, and persist. That is the contract. Whether picking up a sword does 1d8 damage or triggers a Pathfinder maneuver is the responsibility of a RulesetMixin layered on top.
 
@@ -41,21 +41,39 @@ In Astral MUD Engine, that line just moves an entity from one container to anoth
 
 ## Data over code
 
-The other decision we made early was to push as much game content as possible into data, not code. Entity prototypes live in JSON. Body schemas are lists, not classes. Persistence policy is a configuration, not a hardcoded function. The runtime reads data and reacts.
+The other decision I made early was to push as much game content as possible into data, not code. Entity prototypes live in JSON. Body schemas are lists, not classes. Persistence policy is a configuration, not a hardcoded function. The runtime reads data and reacts.
 
 This sounds obvious until you remember every framework that started "we'll just hardcode a few things" and is now drowning in cross-cutting concerns.
 
-## Why a payments engineer cares about a game engine
+## The cost of capability: server CPU and memory keep climbing
 
-The architectural instincts that make a marketplace platform scale (FoodCourt) and a multi-bank wallet route correctly (Moneey App) turn out to be the same instincts that make a game engine reusable. Decouple the policy from the mechanism. Keep the core small. Push variability into swappable layers. Make data the source of truth.
+The honest part of any game engine post nobody writes about: as capabilities grow, the server resource curve gets steeper.
 
-I keep getting reminded that the discipline transfers. Whether it is partner-bank transfer routing or D&D dice rolls, the same answer keeps holding up: do not let the rules of today contaminate the structure of tomorrow.
+When I had a small world with a handful of entities and one or two commands, idle CPU sat near zero and the resident memory of the Evennia process was small enough to ignore. That ended quickly.
+
+Every new system adds a fixed cost and a per-entity cost. A few patterns I keep watching:
+
+- **Entity count drives memory linearly.** Every persisted object holds attributes, tags, scripts, and a backref into the type system. Spin up a few thousand items in a world and the process memory steps up in chunks you can feel.
+- **Ruleset mixins do per-tick work.** A combat system that ticks regen, a stamina system that decays, a perception system that scans nearby rooms — each one adds CPU even when the world looks quiet. The cost is "small per entity" multiplied by every active entity.
+- **Containment trees are not free.** Looking up "what is in this room, transitively?" cheap when a room has a chair. Less cheap when a chair contains a chest that contains a pouch that contains coins.
+- **Persistence chatter compounds.** Every attribute write is a database round trip if you do not batch. Add a system that touches many entities per tick and suddenly the DB is the hot path, not the game logic.
+- **The web client and signal dispatch are real overhead.** Twisted's reactor handles a lot, but every active session, every message broadcast, every signal fired through the event hook system costs something. Multiply by concurrent players and it shows up in CPU.
+
+The fix is not "make it faster" in the abstract. The fix is to measure, isolate, and decide which capability is worth the headroom it consumes. A combat tick that runs every second across every NPC in the world is a different bill than the same tick running only on engaged NPCs.
+
+I am now baselining process CPU and resident memory after every significant feature merge. Three numbers I track:
+
+1. Idle CPU with N entities loaded.
+2. CPU under a scripted scenario (combat round, room transit, mass spawn).
+3. Resident memory after a full world load and a full restart.
+
+When a number moves the wrong way, the question is not "can we afford a bigger box?" The question is "did this capability justify the cost, and can we make it lazy, batched, or scoped to active entities only?"
 
 ## Where Astral MUD Engine is now
 
 I demo every milestone in the Evennia web client (localhost:4001 in my case) with concrete in-game scenarios, not abstract test runs. "A player picks up a sword." "Two characters in different rooms trade an item." "A container is destroyed while items are inside it." If a feature cannot survive a real game scenario, it is not done.
 
-It is a side project, but the engineering muscle it has built up is anything but. If you are a senior engineer looking for a side project that quietly makes you better at your day job, build something that forces you to design for reuse from day one.
+The next chapter is the boring, important one: keeping the server resource curve gentle as the capability surface keeps growing.
     `.trim(),
   },
   {
